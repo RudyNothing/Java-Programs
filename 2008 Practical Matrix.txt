@@ -1,0 +1,77 @@
+import java.util.*;
+public class Matrix
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size");
+        int n = sc.nextInt();
+        if(n>20)
+        {
+            System.out.println("Wrong Input");
+            System.exit(0);
+        }
+        int list[][] = new int[n][n];
+        int sort[] = new int[n*n];
+        int i=0,j=0;
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                System.out.println("Enter a Number");
+                list[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("ORIGINAL MATRIX:");
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                System.out.print(list[i][j] + " ");
+            }
+            System.out.println();
+        }
+        int k=0,t=0;
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                sort[k] = list[i][j];
+                k++;
+            }
+        }
+        for(i=0;i<sort.length-1;i++)
+        {
+            for(j=0;j<sort.length-1-i;j++)
+            {
+                if(sort[j] > sort[j+1])
+                {
+                    t = sort[j];
+                    sort[j] = sort[j+1];
+                    sort[j+1] = t;
+                }
+            }
+        }
+        k=0;
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                list[i][j] = sort[k];
+                k++;
+            }
+        }
+        System.out.println("SORTED MATRIX:");
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                System.out.print(list[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("The largest element " + list[n-1][n-1] + " is in row " + (n) + " and column " + (n));
+        System.out.println("The second largest element " + list[n-1][n-2] + " is in row " + (n) + " and column " + (n-1));
+
+    }
+}
