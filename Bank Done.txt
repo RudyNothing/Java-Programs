@@ -1,0 +1,229 @@
+import java.util.*;
+public class Banking
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int accno[] = new int[100];
+        String name[] = new String[100];
+        String dob[] = new String[100];
+        String phno[] = new String[100];
+        double aadhar[] = new double[100];
+        String add[] = new String[100];
+        int pass[] = new int[100];
+        int amount[] = new int[100];
+        int i=0;
+        while(true)
+        {
+            System.out.println("Enter 1 to Open An Account");
+            System.out.println("Enter 2 to Deposit Money");
+            System.out.println("Enter 3 to Withdraw Money");
+            System.out.println("Enter 4 to Print the Bank Statement");
+            System.out.println("Enter 5 to make a Fixed Deposit(FD)");
+            System.out.println("Enter 6 to Quit/Exit");
+            System.out.println("Enter Your Choice : ");
+            int ch = sc.nextInt();
+        
+            
+                switch(ch)
+                {
+                    case 1: int c=0;
+                            Random randomNum = new Random();
+                            System.out.println("Procedure to Open An Account is as follows:");
+                            System.out.print("Account Number :");
+                            accno[i] = randomNum. nextInt(100);
+                            System.out.println(accno[i]);
+                            System.out.println("Enter The Password : ");
+                            pass[i] = sc.nextInt();        
+                            System.out.println("Enter The Aadhar Number : ");
+                            aadhar[i] = sc.nextDouble();
+                            System.out.println("Enter the Phone Number : ");
+                            phno[i] = sc.next();
+                            System.out.print("Enter the Name : ");
+                            name[i] = sc.next();
+                            System.out.print("Enter The Date Of Birth : ");
+                            dob[i] = sc.next();
+                            System.out.print("Enter The Address : ");
+                            add[i] = sc.next();
+                            int count = 0,pop = pass[i];
+                            while(pop > 0)
+                            {
+                                count ++;
+                                pop = pop/10;
+                            }
+                            if(count == 4)
+                                System.out.println("Valid Password");
+                            else
+                                System.out.println("Enter a 4-Digit Password");
+                        
+                            if(phno[i].length() == 10)
+                            {
+                                System.out.println("Valid Phone Number");
+                                System.out.println();
+                                break;
+                            }
+                            else
+                                System.out.println("Enter a 10-Digit Phone Number");
+                            break;
+
+                    case 2: System.out.println("Enter Your Account Number : ");
+                            int acc = sc.nextInt();
+                            boolean flag = false;
+                            for(int j=0;j<accno.length;j++)
+                            {
+                                if(acc == accno[j])
+                                {
+                                    flag = true;
+                                    System.out.println("Valid Account Number.");
+                                }
+                            }
+                            if(flag == false)
+                            {
+                                System.out.println("Enter a Valid Account Number");
+                            }
+                            System.out.println("Enter The Amount to be deposited : ");
+                            int amt = sc.nextInt();
+                            if(i==0)
+                                amount[0] = amt;
+                            else
+                                amount[i] = amount[i] + amt;
+                            System.out.println("Money Deposited");
+                            break;
+
+                    case 3: System.out.println("Enter Your Account Number :");
+                            int ac = sc.nextInt();
+                            System.out.println("Enter the Amount to be withdrawn :");
+                            int amtp = sc.nextInt();
+                            int word=0;
+                            if(amtp<=500)
+                            {
+                                System.out.println("Withdrawals Not Possible for amounts less than 500/-");
+                            }
+                            else
+                            {
+                                System.out.println("Enter your Password");
+                                word = sc.nextInt();
+                            }
+                            int Amt = 0;
+                           for(int j= 0;j<accno.length;j++)
+                           {
+                                if(ac == accno[j])
+                                {
+                                    Amt = 1;
+                                    System.out.println("Valid Account Number");
+                                }
+                            }
+                            if(Amt == 0)
+                            {     
+                                System.out.println("Enter a Valid Account Number");
+                            }
+                            int Pass = 0;
+                            for(int j= 0;j<pass.length;j++)
+                            {
+                                if(word == pass[j])
+                                {
+                                    Pass = 1;
+                                    System.out.println("Valid Password");
+                                }
+                            }
+                            if(Pass == 0)
+                            {
+                                System.out.println("Password is Invalid");
+                            }
+                            if(Amt == 1 && Pass == 1)
+                            {
+                                amount[i] = amount[i] - amtp;
+                                 System.out.println("Please Collect Your Cash");
+                            }
+                            break;
+
+                    case 4: System.out.println("Enter Your Account Number :");
+                            int acno = sc.nextInt();
+                            int flg = 0;
+                            if(acno == accno[i])
+                            {
+                                flg = 1;
+                                System.out.println("Valid Account Number");
+                            }
+                            else
+                            {
+                                flg =0;
+                            }
+                            if(flg == 0)
+                            {
+                                System.out.println("Enter a Valid Account Number.");
+                            }
+                            else
+                            {
+                                System.out.println("Name : " + name[i]);
+                                System.out.println("Address : " + add[i]);
+                                System.out.println("Balance Amount : " + amount[i]);
+                            }
+                            break;
+
+                    case 5: System.out.println("Enter Your Account Number :");
+                            int acnum = sc.nextInt();
+                            int f = 0;
+                            if(acnum == accno[i])
+                            {
+                                f = 1;
+                                System.out.println("Valid Account Number");
+                            }
+                            else
+                            {
+                                f = 0;
+                            }
+                            if(f == 0)
+                            {
+                                System.out.println("Enter a Valid Account Number.");
+                            }
+                            System.out.println("Enter Your Password :");
+                            int pw = sc.nextInt();
+                            int p = 0;
+                            if(pw == pass[i])
+                            {
+                                p = 1;
+                                System.out.println("Valid Password");
+                            }
+                            else
+                            {
+                                p = 0;
+                            }
+                            if(p == 0)
+                            {
+                                System.out.println("Invalid Password.");
+                            }
+                            if(f == 1 && p == 1)
+                            {
+                                System.out.println("Enter the Amount to be deposited as FD");
+                                double amut = sc.nextDouble();
+                                if(amut>amount[i])
+                                {
+                                    System.out.println("Insufficient Balance");
+                                }
+                                else
+                                {
+                                    System.out.println("Enter the Term(in years) for which the FD is to be made");
+                                    int term = sc.nextInt();
+                                    double interest =0;
+                                    if(term <= 1)
+                                        interest = 0.04 * amut;
+                                    else if(term > 1 && term <= 2 )
+                                        interest = 0.05 * amut;
+                                    else if(term > 2 && term <= 3)
+                                        interest = 0.06 * amut;
+                                    else if (term > 3 && term <= 4)
+                                        interest = 0.07 * amut;
+                                    else
+                                        interest = 0.08 * amut;
+                                    System.out.println("The Maturity Value at the end of the Term will be" + (amut + (interest*term)));
+                                    System.out.println("FD Opened");
+                                }
+                            }
+                            break;
+                    case 6: System.exit(0);
+                
+            }
+        }
+    }
+}

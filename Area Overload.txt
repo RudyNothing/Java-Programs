@@ -1,0 +1,31 @@
+public class Overload
+{
+    public void area(int s)
+    {
+        double ar=0;
+        ar= (Math.sqrt(3)*s*s)/4;
+        System.out.println("The Area of Equilateral Triangle is" + ar);
+    }
+    public void area(int a,int b)
+    {
+        ar= b/4 * (Math.sqrt(4*a*a + b*b));;
+        System.out.println("The Area of Isosceles Triangle is" + ar);
+    }
+    public void area(int a,int b,int c)
+    {
+        double s= (a+b+c)/2;
+        ar= Math.sqrt(s*(s-a)*(s-b)*(s-c));
+        System.out.println("The Area of Scalene Triangle is" + ar);
+    }
+}
+
+class Demo
+{
+    public static void main(String args[])
+    {
+        Overload ob=new Overload();
+        ob.area(int s);
+        ob.area(int a,int b);
+        ob.area(int a,int b,int c);
+    }
+}

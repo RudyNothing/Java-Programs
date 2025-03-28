@@ -1,0 +1,75 @@
+import java.util.*;
+public class Holder
+{
+	int Q[];
+	int cap;
+	int front;
+	int rear;
+	public Holder(int n)
+	{
+		cap=n;
+		Q= new int[cap];
+		front=rear=0;
+	}
+	public void addint(int v)
+	{
+		if(rear==cap)
+		{
+			System.out.println("HOLDER IS FULL");
+		}
+		else
+		{
+			Q[rear]=v;
+			rear++;
+		}
+	}
+	public int removeint()
+	{
+		if(front==rear)
+		{
+			return(-999);
+		}
+		else 
+		{
+			int h=Q[front];
+			if(front==rear-1)   // last
+			{
+				front=rear=0;
+			}
+			else
+			{
+				front++;
+			}
+			return(h);
+		}
+	}
+	public void show()
+	{
+		int i=0;
+		for(i=front;i<rear;i++)
+		{
+			System.out.print(Q[i]+" ");
+		}
+	}
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of the Queue");
+		int size=sc.nextInt();
+		Holder ob=new Holder(size);
+		for(int i=0;i<size;i++)
+		{
+			System.out.println("Enter the no.to be inserted in the Queue");
+			int cue=sc.nextInt();
+			ob.addint(cue);
+		}
+		ob.show();
+		System.out.println();
+		System.out.println("Removing Elements:");
+		for(int i=0;i<size;i++)
+		{
+			int ch=ob.removeint();
+			System.out.println(ch+" ");
+		}
+	}
+}

@@ -1,0 +1,56 @@
+import java.util.*;
+public class Smith
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number");
+        int n = sc.nextInt();
+        int i=0,r=0,sumd=0;
+        int f[] = new int[n];
+        int t=n,j=0,sumf=0,c=0;
+        while(t>0)
+        {
+            r = t%10;
+            sumd = sumd + r;
+            t = t/10;
+        }
+        for(i=2;i<=n;i++)
+        {
+            if(n%i==0)
+            {
+                f[j] = i;
+                j++;
+            }
+        }
+        for(i=0;i<f.length;i++)
+        {
+            c=0;
+            for(j=1;j<=f[i];j++)
+            {
+                if(f[i]%j == 0)
+                {
+                    c++;
+                }
+            }
+            if(c==2)
+            {
+                int x = f[i];
+                while(x>0)
+                {
+                    int y = x%10;
+                    sumf = sumf + y;
+                    x=x/10;
+                }
+            }
+        }
+        if(sumd == sumf)
+        {
+            System.out.println("Smith Number");
+        }
+        else
+        {
+            System.out.println("Not a Smith Number");
+        }
+    }
+}

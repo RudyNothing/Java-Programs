@@ -1,0 +1,50 @@
+import java.util.*;
+public class GreatestOf3Numbers
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number");
+        int a = sc.nextInt();
+        System.out.println("Enter a Number");
+        int b = sc.nextInt();
+        System.out.println("Enter a Number");
+        int c = sc.nextInt();
+        if(a<b && a<c)
+        {
+            System.out.println("The Smallest Number is " + a);
+        }
+        else if(b<a && b<c)
+        {
+            System.out.println("The Smallest Number is " + b);
+        }
+        else
+        {
+            System.out.println("The Smallest Number is " + c);
+        }
+        if(a>b && a<c || a<b && a>c)
+        {
+            System.out.println("The Next Higher Number is " + a);
+        }
+        if(b>a && b<c || b<a && b>c)
+        {
+            System.out.println("The Next Higher Number is " + b);
+        }
+        if(c>a && c<b || c<a && c>b)
+        {
+            System.out.println("The Next Higher Number is " + c);
+        }
+        if(a>b && a>c)
+        {
+            System.out.println("The Greatest Number is " + a);
+        }
+        else if(b>a && b>c)
+        {
+            System.out.println("The Greatest Number is " + b);
+        }
+        else
+        {
+            System.out.println("The Greatest Number is " + c);
+        }
+    }
+}

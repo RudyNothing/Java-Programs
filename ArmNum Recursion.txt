@@ -1,0 +1,53 @@
+import java.util.*;
+class ArmNum
+{
+    int n;
+    int l;
+    
+    public ArmNum(int nn)
+    {
+        n = nn;
+    }
+    
+    int sum_pow(int i)
+    {
+        if(i==0)
+        {
+            return(0);
+        }
+        else
+        {
+            int r = i%10;
+            return((int)Math.pow(r,l) + sum_pow(i/10));
+        }
+    }
+    
+    void isArmstrong()
+    {
+        int count=0,t=n;
+        while(t>0)
+        {
+            count ++;
+            t=t/10;
+        }
+        l=count;
+        int check = sum_pow(n);
+        if(check == n)
+        {
+            System.out.println("Armstrong Number");
+        }
+        else
+        {
+            System.out.println("Not an Armstrong Number");
+        }
+    }
+    
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number");
+        int nn = sc.nextInt();
+        ArmNum ob = new ArmNum(nn);
+        ob.isArmstrong();
+    }
+}

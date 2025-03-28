@@ -1,0 +1,49 @@
+import java.util.*;
+public class Tokenize
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Sentence");
+        String s = sc.nextLine();
+        String str = s.substring(0,s.length()-1);
+        System.out.println(str);
+        System.out.println("Word " + "\t" + " Vowels" + "\t" + "\t" +  "Consonants ");
+        if(s.substring(s.length()-1).equals(".")  || s.substring(s.length()-1).equals("?"))
+        {
+            
+            StringTokenizer st = new StringTokenizer(str);
+            while(st.hasMoreTokens())
+            {
+                String t = st.nextToken();
+                t=t.toLowerCase();
+                int con=0,v=0;
+                char ch = t.charAt(0);
+                ch = Character.toUpperCase(ch);
+                String newst = ch + t.substring(1);
+                int i=0;
+                for(i=0;i<newst.length();i++)
+                {
+                    char c = newst.charAt(i);
+                    if(c =='A' || c =='E' || c =='I' || c =='O' || c =='U' || c =='a' || c =='e' || c =='e' || c =='o' || c =='u')
+                    {
+                        v++;
+                    }
+                    else if(c !='A' && c !='E' && c !='I' && c !='O' && c !='U' && c !='a' && c !='e' && c !='e' && c !='o' && c !='u')
+                    {
+                        con++;
+                    }
+                }
+                System.out.println();
+                System.out.println(newst + "\t" + v + "\t" + "\t" + con);
+                System.out.println();
+            }
+            
+        }
+        else
+        {
+            System.out.println("Wrong Input");
+            System.exit(0);
+        }
+    }
+}

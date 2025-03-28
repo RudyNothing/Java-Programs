@@ -1,0 +1,37 @@
+import java.util.*;
+public class Menu
+{
+    public static void main(String args[])
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.println(" Enter 1 to find out the sum of the series: x^1-x^3+x^5-x^7");
+        System.out.println("Enter 2 to print the given pattern");
+        System.out.println("Enter Your Choice");
+        int ch=sc.nextInt();
+        System.out.println("Enter the Number of terms");
+        int n=sc.nextInt();
+        switch
+        {
+            case 1: System.out.println("Enter a Number");
+                    int x-sc.nextInt();
+                    int i=0,t=1;
+                    double sum=0;
+                    for(i=1;i<=n;i++)
+                    {
+                        if(i%2==0)
+                        {
+                          sum = sum - Math.pow(x,t);
+                        }
+                        else
+                         {
+                            sum = sum + Math.pow(x,t);
+                         }
+                         t=t+2;
+                    }
+                    System.out.println("The Sum of the given Series is" + sum);
+                    break;
+            case 2: 
+        }
+        
+    }
+}

@@ -1,0 +1,52 @@
+import java.util.*;
+public class Printing
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String");
+        String s = sc.nextLine();
+        s = s.toUpperCase();
+        StringTokenizer st = new StringTokenizer(s,".!?");
+        int v[] = new int[st.countTokens()];
+        int w[] = new int[st.countTokens()];
+        int i=0,j=0,c=0;
+        while(st.hasMoreTokens())
+        {
+            String sent = st.nextToken();
+            StringTokenizer st1 = new StringTokenizer(sent);
+            w[i] = st1.countTokens();
+            c=0;
+            for(j=0;j<sent.length();j++)
+            {
+                char ch = sent.charAt(j);
+                if(ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+                {
+                    c++;
+                }
+            }
+            v[i] = c;
+            i++;
+        }
+        System.out.println("Sentence " + "\t" + " No. of vowels" + "\t" + "No. of words");
+        for(i=0;i<v.length;i++)
+        {
+            System.out.println((i + 1) + "\t \t" + v[i] + "\t \t" + w[i]);
+        }
+        System.out.println("Sentence \t No. of vowels \t No. of words");
+        for(i=0;i<v.length;i++)
+        {
+            System.out.print((i+1) + "\t \t");
+            for(j=1;j<=v[i];j++)
+            {
+                System.out.print("vvv");
+            }
+            System.out.print( "     ");
+            for(j=1;j<=w[i];j++)
+            {
+                System.out.print("www");
+            }
+            System.out.println();
+        }
+    }
+}

@@ -1,0 +1,19 @@
+import java.util.*;
+public class Similar
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a String");
+        String s=sc.nextLine();
+        int i=0,c=0;
+        for(i=1;i<=s.length()-1;i++)
+        {
+            char ru=s.charAt(i);
+            char su=s.charAt(i+1);
+            if(ru==su)
+            c++;
+        }
+        System.out.println("The Occurence of Consecutive Letters is"+c);
+    }
+}

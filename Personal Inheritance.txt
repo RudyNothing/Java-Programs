@@ -1,0 +1,84 @@
+import java.util.*;
+public class Personal
+{
+    String name;
+    String PAN;
+    double basic_pay;
+    String acc_no;
+    
+    public Personal(String nm,String pn,double bp,String acno)
+    {
+        name = nm;
+        PAN = pn;
+        basic_pay = bp;
+        acc_no = acno;
+    }
+    
+    void display()
+    {
+        System.out.println("The Name of the Employee is " + name);
+        System.out.println("The PAN Number of the Employee is " + PAN);
+        System.out.println("The Basic Pay of the Employee is " + basic_pay);
+        System.out.println("The Account Number of the Employee is " + acc_no);
+    }
+
+}
+
+class Retire extends Personal
+{
+    int Yrs;
+    double Pf;
+    double Grat;
+    
+    public Retire(String n,String p,double b,String a,int y)
+    {
+        super(n,p,b,a);
+        Yrs = y;
+        Pf=0;
+        Grat=0;
+    }
+    
+    void provident()
+    {
+        Pf = 0.02 * basic_pay * Yrs;
+    }
+    
+    void gratuity()
+    {
+        if(Yrs >= 10)
+        {
+            Grat = basic_pay * 12;
+        }
+        else
+        {
+            Grat = 0;
+        }
+    }
+    
+    void display1()
+    {
+        super.display();
+        provident();
+        gratuity();
+        System.out.println("The Provident Fund is :" + Pf);
+        System.out.println("The Gratuity is :" + Grat);
+    }
+    
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Name");
+        String n = sc.nextLine();
+        System.out.println("Enter the PAN Number");
+        String p = sc.nextLine();
+        System.out.println("Enter the Account Number");
+        String ac = sc.nextLine();
+        System.out.println("Enter the basic pay");
+        double bp = sc.nextDouble();
+        System.out.println("Enter the number of years of service");
+        int y = sc.nextInt();
+        Retire ob = new Retire(n,p,bp,ac,y);
+        ob.display1();
+    }
+    
+}

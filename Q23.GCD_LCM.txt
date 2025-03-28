@@ -1,0 +1,25 @@
+import java.util.*;
+public class GCD_LCM
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number");
+        int a = sc.nextInt();
+        System.out.println("Enter a Number");
+        int b = sc.nextInt();
+        int min = (a<b)?a:b;
+        int i=0,gcd=0;
+        for(i=min;i>=1;i--)
+        {
+            if(a%i==0 && b%i==0)
+            {
+                gcd = i;
+                break;
+            }
+        }
+        int lcm = (a*b)/gcd;
+        System.out.println("The Greatest Common Divisor(GCD) is " + gcd);
+        System.out.println("The Lowest Common Multiple(LCM) is " + lcm);
+    }
+}

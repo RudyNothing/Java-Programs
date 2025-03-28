@@ -1,0 +1,57 @@
+import java.util.*;
+public class laptop
+{
+    int cost;
+    double dis;
+    double amount;
+    String brand;
+    Scanner sc= new Scanner(System.in);
+    public laptop()
+    {
+        cost=0;
+        brand="";
+        
+    }
+    
+    void getdata()
+    {
+        System.out.println("Enter the cost of the Laptop");
+        cost=sc.nextInt();
+        System.out.println("Enter the Brand Name of the Laptop");
+        brand=sc.nextLine();
+    }
+    public laptop(int c,String b)
+    {
+        cost=c;
+        brand=b;
+    }
+    void compute()
+    {
+        if(cost>20000 && cost<=30000)
+        dis=0.10*cost;
+        else if(cost>30000 && cost<=40000)
+        dis=0.15*cost;
+        else if(cost>40000 && cost<=50000)
+        dis=0.18*cost;
+        else
+        dis=0.20*cost;
+        amount=cost-dis;
+    }   
+    void print()
+    {
+         System.out.println("The Amount paid by the customer is"+ amount);
+         System.out.println("The Cost of the Laptop is"+ cost);
+         System.out.println("The Laptop's Brand name is"+ brand);
+    }
+}
+
+class Demo
+{
+      public static void main(String args[])
+      {
+         laptop ob=new laptop();
+         ob.getdata();
+         ob.compute();
+         ob.print();
+      }
+}

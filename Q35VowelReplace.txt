@@ -1,0 +1,73 @@
+import java.util.*;
+public class Encrypt
+{
+    String wrd;
+    String newwrd;
+    int len;
+    
+    public Encrypt()
+    {
+        wrd="";
+        newwrd="";
+        len=0;
+    }
+    void acceptword()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a word in UPPERCASE");
+        wrd=sc.next();
+        wrd = wrd.toUpperCase();
+        len = wrd.length();
+    }
+    void freqvowcon()
+    {
+        int v=0,c=0,i=0;
+        for(i=0;i<wrd.length();i++)
+        {
+            char ch = wrd.charAt(i);
+            if(ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U')
+            {
+                v++;
+            }
+            else
+            {
+                c++;
+            }
+        }
+        System.out.println("The Vowels in the word are : " + v );
+        System.out.println("The Consonants in the word are : " + c );
+    }
+    void nextVowel()
+    {
+        int i=0;
+        for(i=0;i<wrd.length();i++)
+        {
+            char ch = wrd.charAt(i);
+            if(ch=='A')
+                newwrd = newwrd + 'E';
+            else if(ch=='E')
+                newwrd = newwrd + 'I';
+            else if(ch=='I')
+                newwrd = newwrd + 'O';
+            else if(ch=='O')
+                newwrd = newwrd + 'U';
+            else if(ch=='U')
+                newwrd = newwrd + 'A';
+            else
+                newwrd = newwrd + ch;
+        }
+    }
+    void disp()
+    {
+        System.out.println("The Original Word : " + wrd);
+        System.out.println("The Encrypted Word : " + newwrd);
+    }
+    public static void main(String args[])
+    {
+        Encrypt ob = new Encrypt();
+        ob.acceptword();
+        ob.freqvowcon();
+        ob.nextVowel();
+        ob.disp();
+    }
+}

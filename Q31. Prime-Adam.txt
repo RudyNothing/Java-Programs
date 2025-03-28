@@ -1,0 +1,90 @@
+import java.util.*;
+public class Prime_Adam
+{
+    int m;
+    int n;
+    
+    public Prime_Adam()
+    {
+        m=0;
+        n=0;
+    }
+    
+    void input()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Value of M");
+        m=sc.nextInt();
+        System.out.println("Enter the Value of N");
+        n=sc.nextInt();
+    }
+    boolean isPrime(int x)
+    {
+        int i=0,c=0;
+        for(i=1;i<=x;i++)
+        {
+            if(x%i==0)
+            {
+                c++;
+            }
+        }
+        if(c==2)
+        {
+            return(true);
+        }
+        else
+        {
+            return(false);
+        }
+    }
+    boolean isAdam(int y)
+    {
+        int i=0,sq=y*y,revsq=0,r=0,rev=0,t=y;
+        while(t>0)
+        {
+            r=t%10;
+            rev=rev*10+r;
+            t=t/10;
+        }
+        revsq=rev*rev;
+        int rsq=0;
+        int re=0;
+        int m=revsq;
+        while(m>0)
+        {
+            re=m%10;
+            rsq=rsq*10 + re;
+            m=m/10;
+        }
+        if(sq==rsq)
+        {
+            return(true);
+        }
+        else
+        {
+            return(false);
+        }
+    }
+    void isPrimeAdam()
+    {
+        int i=0,c=0;
+        for(i=m;i<n;i++)
+        {
+            boolean prime= isPrime(i);
+            boolean adam= isAdam(i);
+            if(prime==true && adam==true)
+            {
+                c++;
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println("The Frequency of Prime-Adam Integers is " + c);
+    }
+    
+    public static void main(String args[])
+    {
+        Prime_Adam ob = new Prime_Adam();
+        ob.input();
+        ob.isPrimeAdam();
+    }
+}

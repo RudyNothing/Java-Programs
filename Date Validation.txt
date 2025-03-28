@@ -1,0 +1,64 @@
+import java.util.*;
+public class Date
+{
+    public static void main(String args[]) 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the date in six-digit number format (DDMMYY): ");
+        int date = sc.nextInt();
+        int day = date / 10000;
+        int month = (date % 10000) / 100;
+        int year = date % 100;
+        boolean isValid = isValidDate(day, month, year);
+        if (isValid) 
+        {
+            String dateInFullForm = getFullDate(day, month, year);
+            System.out.println("Valid date: " + dateInFullForm);
+        } 
+        else
+        {
+             System.out.println("Invalid date");
+        }
+    }
+    public static boolean isValidDate(int day, int month, int year) 
+    {
+         if (day <= 0 || month <= 0 || month > 12 || year <= 0)  
+         {
+             return false;
+         }
+         int[] daysInMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31,30,31};
+         if (isLeapYear(year)) 
+         {
+             daysInMonth[1] = 29;
+         }
+         return day <= daysInMonth[month - 1];
+     }
+
+    public static boolean isLeapYear(int year)
+    {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+    public static String getFullDate(int day, int month, int year) 
+    {
+        String[] months = {"January",  "February", "March", "April","May","June",                            "July", "August","September", "October", "November", 
+                           "December" };
+        String suffix;
+        if (day >= 11 && day <= 13) 
+        {
+            suffix = "th";
+        } 
+        else
+        {
+            switch (day % 10)
+            {
+                
+                case 1: suffix = "st"; break;
+                case 2: suffix = "nd"; break;
+                case 3: suffix = "rd"; break;
+                default: suffix = "th"; break;
+            }
+        }
+
+        return day + suffix + " " + months[month - 1] + " " + year;
+    }
+}

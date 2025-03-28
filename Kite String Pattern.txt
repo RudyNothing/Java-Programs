@@ -1,0 +1,52 @@
+public class Pattern
+{
+    public static void main(String args[])
+    {
+        String s = "INDIA";
+        int i=0,j=0,k=0;
+        char a[]=new char[s.length()];
+        for(i=0;i<s.length();i++)
+        {
+            char ch=s.charAt(i);
+            a[i] = ch;
+        }
+        int sp=5;
+        int spa=1;
+        
+        System.out.print("            "+a[0]);
+        System.out.println();
+        for(i=1;i<a.length;i++)
+        {
+            for(j=0;j<sp;j++)   //sp loop
+                System.out.print("  ");
+            for(j=0;j<1;j++)
+                System.out.print(a[i]);
+            for(j=0;j<=spa;j++)  //spa loop
+                System.out.print("  ");
+            for(j=0;j<1;j++)
+                System.out.print(a[i]);
+            sp--;
+            spa=spa+2;
+            System.out.println();
+        }
+        sp=3;
+        spa=5;
+        for(i=a.length-2;i>0;i--) //reverse printing
+        {
+            for(j=0;j<sp;j++)   //sp loop
+                System.out.print("  ");
+            for(j=0;j<1;j++)
+                System.out.print(a[i]);
+            for(j=0;j<=spa;j++)  //spa loop
+                System.out.print("  ");
+            for(j=0;j<1;j++)
+                System.out.print(a[i]);
+            sp++;
+            spa=spa-2;
+            System.out.println();
+        }
+        
+        System.out.print("             "+a[0]);
+        System.out.println();
+    }
+}

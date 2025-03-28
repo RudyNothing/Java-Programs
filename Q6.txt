@@ -1,0 +1,41 @@
+public class Overload
+{
+    void series(int X,int n)
+    {
+        int i=0;
+        double sum=0;
+        for(i=1;i<=n;i++)
+        {
+            sum = sum + Math.pow(X,i);
+        }
+        System.out.println("The Sum is" + sum);
+    }
+    
+    void series(int n)
+    {
+        int i=0;
+        for(i=1;i<=n;i++)
+        System.out.print(((i*i)-1) + ",");
+    }
+    
+    void series()
+    {
+        int i=0;
+        double sum=0;
+        for(i=2;i<=10;i++)
+        {
+            sum = sum + 1/i;
+        }
+    }
+}
+
+class Call
+{
+    public static void main(String args[])
+    {
+        Overload ob = new Overload();
+        ob.series(X,n);
+        ob.series(n);
+        ob.series();
+    }
+}

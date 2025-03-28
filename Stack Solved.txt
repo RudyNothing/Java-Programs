@@ -1,0 +1,72 @@
+import java.util.*;
+public class Stack
+{
+    char cha[];
+    int size;
+    int top;
+    
+    public Stack(int mm)
+    {
+        size = mm;
+        cha = new char[size];
+        top = -1;
+    }
+    
+    void push_char(char v)
+    {
+        if(!(size-1 == top))
+        {
+            top ++;
+            cha[top] = v;
+            System.out.println("Pushed " + v);
+        }
+        else
+        {
+            System.out.println("Stack Full !");
+        }
+    }
+    
+    char pop_char()
+    {
+        if(!(top == -1))
+        {
+            int ptr = top;
+            top--;
+            System.out.println("Popped Element :" + cha[ptr]);
+            return(cha[ptr]);
+        }
+        else
+        {
+            return('$');
+        }
+    }
+    
+    void display()
+    {
+        for(int i=top;i>=0;i--)
+        {
+            System.out.println(cha[i]);
+        }
+    }
+    
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String whose characters will be pushed and popped in/from the stack");
+        String s = sc.nextLine();
+        System.out.println("Enter the Size of the Stack");
+        int m = sc.nextInt();
+        Stack ob = new Stack(m);
+        for(int i=0;i<s.length();i++)
+        {
+            char ch = s.charAt(i);
+            ob.push_char(ch);
+        }
+        ob.display();
+        System.out.println("Popping Elements");
+        for(int i=0;i<s.length();i++)
+        {
+            char ch = ob.pop_char();
+        }
+    }
+}
